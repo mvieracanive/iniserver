@@ -1,7 +1,7 @@
 #!/bin/bash
 
 #variables
-ftpuser=
+ftpuser=PONERUSUARIOFTP
 ftpuserhome=/home/$ftpuser
 ssldays=365
 sslkeyfilepath=/etc/ssl/private/vsftpdkey.pem
@@ -40,40 +40,7 @@ sudo chmod -R 700 $ftpuserhome
 echo NOW vsftpd.conf FILE WILL BE CONFIGURED, BUT A BACKUP WILL BE SAVED IN FILE /etc/vsftpd.conf.bak 
 sudo cp /etc/vsftpd.conf /etc/vsftpd.conf.bak
 sudo rm /etc/vsftpd.conf
-sudo echo "listen=NO
-listen_ipv6=YES
-anonymous_enable=NO
-local_enable=YES
-write_enable=YES
-local_umask=022
-dirmessage_enable=YES
-use_localtime=YES
-xferlog_enable=YES
-connect_from_port_20=YES
-chroot_local_user=YES
-secure_chroot_dir=/var/run/vsftpd/empty
-pam_service_name=vsftpd
-pasv_enable=YES
-pasv_min_port=40000
-pasv_max_port=50000
-
-#Setting up SSL
-rsa_cert_file=/etc/ssl/certs/ssl-cert-snakeoil.pem
-rsa_private_key_file=/etc/ssl/private/ssl-cert-snakeoil.key
-ssl_enable=YES
-rsa_cert_file=/etc/ssl/private/vsftpd.pem
-rsa_private_key_file=/etc/ssl/private/vsftpd.pem
-allow_anon_ssl=NO
-force_local_data_ssl=YES
-force_local_logins_ssl=YES
-ssl_tlsv1=YES
-ssl_sslv2=NO
-ssl_sslv3=NO
-require_ssl_reuse=NO
-ssl_ciphers=HIGH
-
-#Useful when managing web apps where “.files” are common
-force_dot_files=YES" > /etc/vsftpd.conf
+sudo cp vsftpd.conf /etc/vsftpd.conf
 
 #Restart ftp
 sudo systemctl restart vsftpd
