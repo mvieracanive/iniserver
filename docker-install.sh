@@ -6,6 +6,8 @@ curl -o docker-ce-cli.deb https://download.docker.com/linux/ubuntu/dists/bionic/
 
 curl -o docker-ce.deb https://download.docker.com/linux/ubuntu/dists/bionic/pool/stable/amd64/docker-ce_20.10.9~3-0~ubuntu-bionic_amd64.deb
 
-sudo dpkg -i docker-ce.deb
-sudo dpkg -i docker-ce-cli.deb
+sudo apt-get --only-upgrade install libseccomp2
+
 sudo dpkg -i containerd.io.deb
+sudo dpkg -i docker-ce-cli.deb
+sudo dpkg -i docker-ce.deb
