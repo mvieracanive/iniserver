@@ -43,7 +43,7 @@ sudo rm /etc/vsftpd.conf
 sudo cp vsftpd.conf /etc/vsftpd.conf
 
 #Restart ftp
-sudo systemctl restart vsftpd
+sudo system vsftpd restart
 
 #Return to original pwd
 cd $pwd
