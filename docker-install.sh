@@ -1,17 +1,11 @@
  #!/bin/bash
- 
- sudo apt-get update
 
- sudo apt-get install \
-    ca-certificates \
-    curl \
-    gnupg \
-    lsb-release
-    
-curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+curl https://download.docker.com/linux/ubuntu/dists/bionic/pool/stable/amd64/containerd.io_1.5.11-1_amd64.deb
 
-echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee etc/apt/sources.list.d/docker.list > /dev/null
+curl https://download.docker.com/linux/ubuntu/dists/bionic/pool/stable/amd64/docker-ce-cli_20.10.9~3-0~ubuntu-bionic_amd64.deb
 
-sudo apt-get update
+curl https://download.docker.com/linux/ubuntu/dists/bionic/pool/stable/amd64/docker-ce_20.10.9~3-0~ubuntu-bionic_amd64.deb
 
-sudo apt-get install docker-ce docker-ce-cli containerd.io
+sudo dpkg -i docker-ce_20.10.9~3-0~ubuntu-bionic_amd64.deb
+sudo dpkg -i docker-ce-cli_20.10.9~3-0~ubuntu-bionic_amd64.deb
+sudo dpkg -i containerd.io_1.5.11-1_amd64.deb
